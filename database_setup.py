@@ -16,13 +16,25 @@ class Restaurant(Base):
 	#syntax: __tablename__ = 'table_name'
 	__tablename__ = 'restaurant'
 	#####Mapper#####
-	name = Column(String(80), nullable = False)
-	#String type w max length 80, never Null
-	id = Column(Integer, primary_key = True)
-	#another Column, this time int 
+	name = Column(String(80), nullable = False) #String type w max length 80, never Null
+	id = Column(Integer, primary_key = True) #another Column, this time int 
+
 class Menu(Base):
 	####Table#####
 	__tablename__ = 'menu_item'
+	####Mapper####
+	name = Column(String(80),nullable=False)
+	id = Column(String(250))
+
+	course = Column(String(250))
+
+	description = Column(String(250))
+
+	price = Column(String(8))
+
+	restaurant_id = Column(Integer, ForeignKey('restaurant.id')) #link it to the Restaurant Table's foreign ID key
+
+	restaurant = relationship(Restaurant)
 		
 
 
