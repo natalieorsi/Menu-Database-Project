@@ -25,8 +25,8 @@ class Menu(Base):
 	##Table##
 	__tablename__ = 'menu_item'
 	##Mapper##
-	name = Column(String(80),nullable=False)
-	id = Column(String(250))
+	name = Column(String(80), nullable = False)
+	id = Column(Integer, primary_key = True)
 
 	course = Column(String(250))
 	description = Column(String(250))
